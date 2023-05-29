@@ -5,6 +5,7 @@ import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 import contacts from './data/contactsData.json';
+import css from './App.module.css';
 
 class App extends Component {
   state = {
@@ -56,7 +57,7 @@ class App extends Component {
     const { filter } = this.state;
 
     return (
-      <div>
+      <div className={css.wrapper}>
         <h1>Phonebook</h1>
 
         <ContactForm onSubmit={this.addContact} />
@@ -66,7 +67,7 @@ class App extends Component {
          // Фильтр для отображения контактов
           <Filter value={filter} onChangeFilter={this.changeFilter} />
         ) : (
-          <wrapper>Your phonebook is empty. Add first contact!</wrapper>
+          <p>There are no contacts in the phone book!</p>
         )}
         {this.state.contacts.length > 0 && (
           // Список контактов

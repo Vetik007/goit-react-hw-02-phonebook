@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import css from './ContactList.module.css'
 
 // Компонент списка контактов
 const ContactList = ({ contacts, onRemoveContact }) => (
-  <ul>
+  <ul className={css.list}>
     {contacts.map(contact => (
-      <li key={contact.id}>
-        {contact.name + ' : ' + contact.number}
+      <li className={css.item} key={contact.id}>
+        <p className={css.text}>{contact.name + ' : ' + contact.number}</p>
         {
           // Кнопка удаления контакта
-          <button
+          <button className={css.button}
             type="button"
             name="delete"
             onClick={() => onRemoveContact(contact.id)}
